@@ -14,27 +14,41 @@ code {
 
 .container {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "searchBar hi"
-                       "videoPlayer videoList";
+  padding: 20px;
+}
+
+
+
+.hi {
+  visibility: hidden;
 }
 
 .searchBar {
-  grid-area: searchBar;
+    font-size:1;
 }
 
 .videoPlayer {
   grid-area: videoPlayer;
+  justify-self: center;
+  align-self: center;
 }
 
-.videoList {
-  grid-area: videoList
+.thumbnail {
+  float: left;
 }
 
-p {
-  grid-area: hi;
+.title {
+  float: left;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto;
+}
+
 
 
 

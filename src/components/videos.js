@@ -1,18 +1,22 @@
 const Videos = ({repos,success,setVideoPlaying}) => {
     const onClick = (e) => {
-        setVideoPlaying(e.target.url);
+        console.log("target:", e.currentTarget)
+        let url = `https://www.youtube.com/embed/${e.currentTarget.id}`;
+        setVideoPlaying(url);
     }
     console.log("success",success)
     if (!repos || !success) {
         return <div>youtube banned me :(</div>
     } else if (success) {
         return (
-        repos.items.slice(0,4).map((item)=>(
-            <div url={item.snippet.thumbnails.default.url} key={item.id} className="videoList" style={{cursor:"pointer", height:"20px", width:"50px"}} onClick={onClick}>
-                <img src={item.snippet.thumbnails.default.url}/>
-                <p style={{width:"50px"}}>{item.snippet.title}</p>
+        <div className="grid-container">
+        {repos.items.slice(1,5).map((item)=>(
+            <div key={item.id.videoId} id={item.id.videoId} className="videoList" style={{cursor:"pointer"}} onClickCapture={onClick}>
+                <img className="thumbnail" src={item.snippet.thumbnails.default.url}/>
+                <p className="title" style={{width:"150px",fontSize:"1em"}}>{item.snippet.title}</p>
             </div>)
-        ));
+        )}
+        </div>);
     }  
     return null
 }
