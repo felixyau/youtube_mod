@@ -6,7 +6,7 @@ const Videos = ({repos,success,setVideoPlaying}) => {
     }
     console.log("success",success)
     if (!repos || !success) {
-        return <div>youtube banned me :(</div>
+        return <div>youtube api fetch fail :(</div>
     } else if (success) {
         return (
         <div className="grid-container">
