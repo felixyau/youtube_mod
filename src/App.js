@@ -7,13 +7,13 @@ import config from "./config";
 
 function App() {
   const [item, setItem] = useState({ isLoading:false, repos:"",success:false });
-  const [videoPlaying, setVideoPlaying] = useState("https://www.youtube.com/embed/0YF8vecQWYs")
+  const [videoPlaying, setVideoPlaying] = useState("https://www.youtube.com/embed/cEBkvm0-rg0")
   useEffect(()=> {
       console.log(videoPlaying)
   },[setVideoPlaying])
   useEffect(() => {
     setItem({ isLoading:true });
-    const youtube = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=minami&key=${config.apiKey}`
+    const youtube = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=fireship&key=${config.apiKey}`
     fetch(youtube)
       .then(res=>res.json())
       .then(repos => {
