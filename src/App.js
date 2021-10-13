@@ -3,9 +3,9 @@ import Location from "./components/Location";
 import { useState,useEffect } from "react";
 import Videos from "./components/videos";
 import VideoPlayer from "./components/Videoplayer";
-import dotenv from 'dotenv'
-dotenv.config()
-// import config from "./config";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 function App() {
   const [item, setItem] = useState({ isLoading:false, repos:"",success:false });
@@ -15,7 +15,6 @@ function App() {
   },[setVideoPlaying])
   useEffect(() => {
     setItem({ isLoading:true });
-    console.log("process:",process.env);
     const youtube = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=fireship&key=${process.env.REACT_APP_APIKEY}`
     fetch(youtube)
       .then(res=>res.json())
